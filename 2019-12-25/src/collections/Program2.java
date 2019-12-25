@@ -82,6 +82,18 @@ public class Program2 {
 			case 5:
 				System.out.println("BYE");
 				break;
+				
+			case 6:
+				// delete by index
+				System.out.print("Enter index of text to delete: ");
+				int index = scan.nextInt();
+				if(index >= 0 && index < texts.size()) {
+					texts.remove(index);
+				} else {
+					System.out.println("No such index in your ArrayList");
+				}
+				break;
+				
 			default:
 				System.out.println("Invalid choice!");
 					
