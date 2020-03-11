@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="windows-1255">
+<title>Forms</title>
+</head>
+<body>
+	<h1>Form</h1>
+	
+	<form action="" method="get">
+		<!-- text: -->
+		<input type="text" placeholder="text here" name="text" /><br/>
+		
+		<!-- password: -->
+		<input type="password" placeholder="password" name="pass" /><br/>
+		
+		<!-- number -->
+		<input type="number" placeholder="number" name="num" min="0" /><br/>
+		
+		<!-- Email -->
+		<input type="email" placeholder="email" name="email"  required="required"/><br/>
+		
+		<!-- url -->
+		<input type="url" placeholder="website" name="website" /><br/>
+		
+		<!-- checkbox -->
+		<input type="checkbox"  name="check1" checked="checked"/> Send me junk
+		<input type="checkbox"  name="check2" /> Check 2<br/>
+		
+		<!-- radio -->
+		<input type="radio"  name="radioGroup" value="opt1"/> Option 1
+		<input type="radio"  name="radioGroup" value="opt2"/> Option 2
+		<input type="radio"  name="radioGroup" value="opt3" /> Option 3<br/>
+		
+		<!-- range -->
+		Grade (between 0 and 100)
+		<input type="range" name="rng" min="0" max="100" /><br/>
+		
+		<!-- color -->
+		<input type="color" name="color" /><br/>
+		
+		<!--  date -->
+		<input type="date" name="date" value="2020-03-11" /><br/>
+		
+		<!--  time -->
+		<input type="time" name="time" /><br/>
+		
+		<!-- textarea -->
+		<textarea name="comments" rows="5" cols="10" placeholder="Comments here"></textarea><br/>
+		
+		<!-- select -->
+		<select name="colors">
+			<option>Magenta</option>
+			<option>Blue</option>
+			<option>Green</option>
+			<option value="4">Red</option>
+			<option value="5">Yellow</option>
+		</select>
+		
+		<br/><br/>
+		<input type="reset" value="Clear form"/>
+		<input type="submit" value="Send"/>
+		<input type="button" value="Click me!" />
+	</form>
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
