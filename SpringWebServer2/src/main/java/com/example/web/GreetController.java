@@ -19,4 +19,23 @@ public class GreetController {
 		return "Hello (post) " + username;
 	}
 	
+	@PostMapping("login")
+	public String checkLogin(String email, String password) {
+		if(email.equals("admin@admin.com") && password.equals("admin"))
+			return "Welcome Admin :)";
+		
+		return "Invalid email or password...";
+	}
+	
 }
+
+
+
+
+
+
+
+
+
+
+
