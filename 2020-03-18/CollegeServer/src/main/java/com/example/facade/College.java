@@ -25,6 +25,11 @@ public class College {
 	}
 	
 	public void addStudent(Student student) {
+		// try to find by email
+		// if not found - add
+		// if found - throw OUR exception
+		
+		
 		studentRepo.save(student);
 	}
 	

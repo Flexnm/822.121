@@ -11,6 +11,8 @@ import javax.persistence.Id;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 @Entity
 @Table(name="courses")
 public class Course {
@@ -24,6 +26,7 @@ public class Course {
 	private int duration;
 	@Column
 	private double price;
+	@JsonIgnore
 	@OneToMany(mappedBy = "course", fetch = FetchType.EAGER)
 	private List<Student> students;
 	

@@ -23,7 +23,6 @@ public class Student {
 	private String email;
 	@Column
 	private int grade;
-	@JsonIgnore
 	@ManyToOne
 	private Course course;
 	
