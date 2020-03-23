@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Transition</title>
+
+    <style>
+        div{
+            width:200px;
+            /*height: 200px;*/
+            text-align: center;
+            padding: 100px;
+            font-family: fantasy;
+            background-color: lightskyblue;
+            transition: width 2s, height 2s, background-color 2s, font-size 2s;
+        }
+
+        div:hover{
+            width: 300px;
+            background-color: red;
+            font-size: 30pt;
+        }
+    </style>
+
+</head>
+<body>
+    <div>div 1</div>
+</body>
+</html>

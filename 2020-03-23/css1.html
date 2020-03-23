@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        div{
+            width: 100px;
+            height: 80px;
+            background-color: lightgray;
+            margin: 10px;
+        }
+
+        #d2{
+            /*visibility: hidden;*/
+            display: none;
+        }
+
+        #d5{
+            display: inline;
+        }
+
+        span{
+            display: block;
+            background-color: lightpink;
+        }
+
+        ul{
+            list-style-type: none;
+            margin:0px;
+            padding: 0px;
+            width: 100px;
+        }
+
+        li a{
+            display: block;
+            text-decoration: none;
+            background-color: #555;
+            color: white;
+            padding: 8px;
+        }
+
+        li a:hover{
+            background-color: lightgray;
+        }
+    </style>
+</head>
+<body>
+    <H3>visibility / display</H3>
+    <div>1</div>
+    <div id="d2">2</div>
+    <div>3</div>
+
+    <h3>Display</h3>
+
+    <div id="d5">5</div>
+    <span>This text is in a span</span>
+    
+    <h3>navbar</h3>
+    <ul>
+        <li><a href="#home">Home</a></li>
+        <li><a href="#gallery">Gallery</a></li>
+        <li><a href="#about">About Us</a></li>
+        <li><a href="#contact">Contact Us</a></li>
+    </ul>
+</body>
+</html>

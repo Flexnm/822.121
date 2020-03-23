@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <script>
+        myFunc1();
+        console.log("hi")
+        myFunc1();
+
+        function myFunc1(){
+            console.log("hello from myFunc1 again :)");
+        }
+
+        function myFunc2(){
+            return 10 * 10;
+        }
+
+        console.log( myFunc2() );
+
+        function myFunc3(x, y){
+            if(typeof(y)!="undefined")
+                console.log(x / y);
+            else
+                console.log("missing parameter!");
+        }
+
+
+        //myFunc3(10,5);
+        myFunc3(10);
+
+
+        function testEquals(){
+            let n1 = 10;
+            let n2 = "10";
+            if(n1 === n2)
+                console.log("EQUALS!");
+            else
+                console.log("NOT EQUALS!!");
+        }
+
+        testEquals();
+
+        for(let i=1; i<=10; i++){ // let is used for scoping variables. var is a global variable!
+            console.log("i="+i);
+        }
+        //console.log("i is now: " + i);
+
+        let x = 5;
+        while(x > 0){
+            console.log("x = " + x);
+            x--;
+        }
+
+        x = 30;
+        switch(x){
+            case 3:
+            console.log("x is now 3")
+            break;
+
+            case 1:
+            console.log("one");
+            break;
+
+            case 2:
+            console.log("two...");
+            break;
+
+            default:
+            console.log("some other value");
+        }
+
+        var count = 0;
+    </script>
+
+
+</head>
+<body>
+    <h1>Heading</h1>
+    <input type="button" value="Click me" onclick="alert(++count)"/>
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+

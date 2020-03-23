@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <!--
+
+        create a gallery using grid. Display up to 6 images, make sure each img has a set width. On img hover change the img border.
+
+    -->
+    
+    <style>
+
+        .gridDiv{
+            display: grid;
+            grid-template-columns: auto auto auto;
+            /*grid-template-rows: 250px 400px auto;*/
+        }
+
+        .gridDiv div{
+            width: 200px;
+            height: 180px;
+            background-color: lightgray;
+            margin: 10px;
+        }
+
+        h4{
+            text-align: center;
+            grid-column: span 3;
+            background-color: lightgreen;
+        }
+
+    </style>
+</head>
+<body>
+    <h3>Display grid</h3>
+    <div class="gridDiv">
+        <h4>These are our divs!</h4>
+        <div>1</div>
+        <div>2</div>
+        <div>3</div>
+        <div>4</div>
+        <div>5</div>
+        <div>6</div>
+        <div>7</div>
+        <div>8</div>
+        <div>9</div>
+        <div>10</div>
+        <div>11</div>
+        <div>12</div>
+    </div>
+</body>
+</html>
