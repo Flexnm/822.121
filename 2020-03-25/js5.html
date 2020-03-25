@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <script>
+
+        // צרו דף עם תמונה וכפתור. בלחיצה על הכפתור ישתנה רוחב התמונה לרוחב שונה מהמקור
+
+        // צרו טופס עם שתי תיבות טקסט וכפתור. בלחיצה בדקו אם הטקסטים שווים או לא - תנו הודעה מתאימה מתחת לטופס
+
+
+        function showResult(){
+            //let name = document.getElementById("username").value;
+            //let password = document.getElementById("password").value;
+
+            let name = document.forms["myForm"]["username"].value;
+            let password = document.forms["myForm"]["password"].value;
+
+            if(password.length < 6){
+                alert("Password is too short...");
+                document.getElementById("password").value = "";
+                //document.getElementById("password").type = "text"
+                document.getElementById("password").placeholder = "at least 6 characters long";
+                return;
+            }
+
+            console.log("Your name is: " + name +", your password is: " + password);
+        }
+
+        function increaseWidth(){
+            document.getElementById("logo").width += 50;
+        }
+        function decreaseWidth(){
+            document.getElementById("logo").width -= 50;
+        }
+
+        function checkTexts(){
+            let txt1 = document.getElementById("txt1");
+            let txt2 = document.getElementById("txt2");
+            let result = document.getElementById("checkResult");
+
+            if(txt1.value === txt2.value){
+                result.innerHTML = "Texts are equal";
+            } else {
+                result.innerHTML = "Texts are <b>NOT</b> equal";
+            }
+        }
+    </script>
+
+</head>
+<body>
+    <form id="myForm">
+        <input id="username" type="text" placeholder="Enter your name here" /><br/>
+        <input id="password" type="password" placeholder="Enter your password here" /><br/>
+        <input type="button" value="Send" onclick="showResult()"/>
+    </form>
+    <br/><br/>
+
+    <input type="button" value="◀" onclick="decreaseWidth()" /><input type="button" value="▶" onclick="increaseWidth()" /><br/>
+    <img id="logo" src="https://www.johnbryce.co.il/src/jbh_small.jpg" alt="my image" width="100" /><br/>
+
+    <br/><br/>
+    <form>
+        <input type="text" placeholder="text 1" id="txt1"/><br/>
+        <input type="text" placeholder="text 2" id="txt2"/><br/>
+        <input type="button" value="Check" onclick="checkTexts()" />
+    </form>
+    <div id="checkResult"></div>
+</body>
+</html>

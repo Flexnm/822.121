@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <script>
+        function myFunc(){
+            console.log("yay!");
+            document.getElementById("heading").innerHTML = "Oops"
+        }
+
+        // צרו דף עם פסקה וכפתור. כל לחיצה על הכפתור תציג מספר רנדומלי בפסקה
+        // Math.random() - 
+        // parseInt()
+
+        function generateNum(){
+            var result = document.getElementById("result"); // reference to our "result" paragraph
+            
+            if(result.innerHTML.length <= 20)
+                result.innerHTML += parseInt(Math.random()*100) + " ";
+            else
+                result.innerHTML = parseInt(Math.random()*100) + " ";
+        }
+
+
+        function func1(){
+            console.log("ouch!");
+        }
+
+        function func2(){
+            console.log("you left me...");
+        }
+    </script>
+
+</head>
+<body>
+    <h3 id="heading">Click Events</h3>
+    <input type="button" value="click me" onclick="myFunc();" />
+    <br/><br/>
+    <p id="result"></p>
+    <input type="button" value="Get Number" onclick="generateNum()" />
+    <br/><br/>
+    <div onmouseover="func1()" onmouseout="func2()">This is my cool div!</div>
+
+</body>
+</html>
