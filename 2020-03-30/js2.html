@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        var id;
+
+        function stop(){
+            clearInterval(id);
+        }
+
+        function start(){
+            id = setInterval( doIt, 100 );
+        }
+
+        var flag = true;
+
+        function doIt(){
+            if(flag){
+                document.getElementById("div1").style.color = "rgb(255,200,0)"
+            }
+            else {
+                document.getElementById("div1").style.color = "black"
+            }
+
+            flag = !flag;
+        }
+
+        setInterval(disco, 1000);
+
+        function disco(){
+            let red = parseInt(Math.random() * 256);
+            let green = parseInt(Math.random() * 256);
+            let blue = parseInt(Math.random() * 256);
+            document.getElementById("div1").style.backgroundColor = "rgb(" + red + ","  + green + "," + blue + ")";
+            //console.log("rgb(" + red + ","  + green + "," + blue + ")")
+        }
+    </script>
+</head>
+<body>
+    <input type="button" onclick="start()" value="GO!" />
+    <input type="button" onclick="stop()" value="STOP!" /><br/>
+    <div id="div1">Some text</div>
+    
+</body>
+</html>

@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Homework</title>
+
+    <script>
+
+        var images = [ "1.jpg", "2.jpg", "3.jpg" ];
+        var index = 0;
+
+        function prevImg(){
+            index--;
+            if(index == -1)
+                index = images.length - 1;
+            document.getElementById("image").src = images[index];
+        }
+
+        function nextImg(){
+            index++;
+            if(index == images.length)
+                index = 0;
+                //alert("no more pics!")
+            document.getElementById("image").src = images[index];
+        }
+
+
+        function checkNumber(){
+            let num = document.getElementById("txtNumber").value;
+            if(num >= 1 && num <= 10)
+                alert("Yofi");
+            else
+                alert("Tofi");
+        }
+
+        var data = [];
+        var i = 0;
+        function addData(){
+            //data[i] = document.getElementById("txtData").value;
+            data.push(document.getElementById("txtData").value);
+            document.getElementById("txtData").value = "";
+            document.getElementById("result").innerHTML = data[i] + " was ADDED!";
+            //alert(data[i] + " was ADDED!")
+            i++;
+        }
+
+        function showData(){
+            //document.getElementById("result").innerHTML = data
+            // reset the html in div
+            document.getElementById("result").innerHTML = "";
+            for(let i=0; i<data.length; i++){
+                // add each data item into div
+                document.getElementById("result").innerHTML += "<input type='text' value="+ data[i] +" /><br/>" ;
+            }
+        }
+
+        function swap(){
+            let temp = document.getElementById("txt1").value;
+            document.getElementById("txt1").value = document.getElementById("txt2").value;
+            document.getElementById("txt2").value = temp;
+        }
+    </script>
+
+    <style>
+        #txtData{
+            width: 200px;
+        }
+
+        .error{
+            color: red;
+        }
+    </style>
+
+</head>
+<body>
+    <button onclick="prevImg();">⏪</button>
+    <button onClick="nextImg();">⏩</button><br/>
+    <img src="1.jpg" alt="images here" id="image" width="300" height="200"/><br/>
+    <br/><br/>
+
+    <input type="text" id="txtNumber" /><br/>
+    <input type="button" value="Check number" onclick="checkNumber()" />
+    <br/><br/>
+
+    <input type="text" id="txtData" /><br/>
+    <input type="button" value="Add" onclick="addData()" />
+    <input type="button" value="Show" onclick="showData()" /><br/>
+    <div id="result"></div>
+
+    <br/><br/><br/>
+    <input type="text" id="txt1" /><br/>
+    <input type="text" id="txt2" /><br/>
+    <input type="button" onclick="swap()" value="SWAP" /><br/>
+    <br/><br/>
+
+    <input type="text" id="fname" placeholder="First Name" /> <span class="error" id="errFname"></span><br/>
+    <input type="text" id="lname" placeholder="Last Name" /> <span class="error" id="errLname"></span><br/>
+    <input type="password" id="pass1" placeholder="Password"/> <span class="error" id="errPass1"></span><br/>
+    <input type="password" id="pass2"placeholder="Confirm Password" /> <span class="error" id="errPass2"></span><br/>
+    <input type="button" onclick="send()" value="Send" /><br/>
+    
+
+    <script>
+        function send(){
+            let fname = document.getElementById("fname").value;
+            let lname = document.getElementById("lname").value;
+            let pass1 = document.getElementById("pass1").value;
+            let pass2 = document.getElementById("pass2").value;
+
+            if(fname == "")
+                document.getElementById("errFname").innerHTML = "First name is missing...";
+            else
+                document.getElementById("errFname").innerHTML = "";
+
+            
+             if(lname == "")
+                document.getElementById("errLname").innerHTML = "Last name is missing...";
+            else
+                document.getElementById("errLname").innerHTML = "";
+
+            if(pass1 == "")
+                document.getElementById("errPass1").innerHTML = "Password is missing...";
+            else
+                document.getElementById("errPass1").innerHTML = "";
+
+            
+            if(pass2 == "")
+                document.getElementById("errPass2").innerHTML = "Confirm password is missing...";
+            else
+                document.getElementById("errPass2").innerHTML = "";
+
+            if(pass1 != pass2)
+                document.getElementById("errPass2").innerHTML = "Passwords do not match!";
+           
+        }
+
+    </script>
+    
+</body>
+</html>

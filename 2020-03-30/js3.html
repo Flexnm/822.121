@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Events</title>
+
+    <script>
+
+        /*
+            בדף חדש הגדירו שני כפתורים ודיב.
+            בלחיצה על כפתור ראשון יגדל הטקסט ב-5,
+            בלחיצה על הכפתור השני יקטן הטקסט ב-5.
+            יש לקשר את האירועים דרך סקריפט בלבד
+
+        */
+
+        window.addEventListener("load", init);
+
+        function init(){
+            document.getElementById("btn1").addEventListener("click", doIt);
+
+            document.getElementById("div1").addEventListener("dblclick", doIt);
+            document.getElementById("div1").addEventListener("mouseover", function(){
+                document.getElementById("div1").style.color = "aqua";
+                    document.getElementById("div1").style.fontSize = "20pt"; 
+                } );
+            document.getElementById("div1").addEventListener("mouseout", function(){
+                document.getElementById("div1").style.fontSize = "12pt";
+                document.getElementById("div1").style.color = "black"; 
+            } );
+        }
+
+        // function doIt2(){
+        //     document.getElementById("div1").style.fontSize = "20pt";
+        // }
+
+        function doIt(){
+            setTimeout( function(){
+                alert("hi")
+            },1000);
+        }
+    </script>
+
+    <style>
+        #btn1{
+            color:red;
+        }
+    </style>
+
+</head>
+<body>
+    <input type="button" value="Click me" id="btn1" /><br/>
+    <div id="div1">Div 1 rulez....</div>
+</body>
+</html>

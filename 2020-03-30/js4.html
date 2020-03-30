@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <script>
+
+        var size = 12;
+
+        window.addEventListener("load", function(){
+            // connect btnSmall to click event
+            document.getElementById("btnSmall").addEventListener("click", function(){
+                size -= 5;
+                document.getElementById("div").style.fontSize = size + "pt";
+            }); // end of btnSmall click
+
+            // connect btnBig to click event
+            document.getElementById("btnBig").addEventListener("click", function(){
+                size += 5;
+                document.getElementById("div").style.fontSize = size + "pt";
+            }) // end of btnBig click
+
+        }); // end of window load
+    </script>
+
+</head>
+<body>
+    <input type="button" id="btnSmall" value="-" />
+    <input type="button" id="btnBig" value="+" /><br/>
+    <div id="div">Text here</div>
+</body>
+</html>

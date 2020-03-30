@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <!-- 
+        צרו דף ובו טקסט כלשהו. 
+        בריחוף עם העכבר עליו ישתנה צבעו וגודל הטקסט שלו. בעזיבת העכבר יחזור לצבע שחור וגודל 12
+
+     -->
+
+    <script>
+        function changeMe(){
+            document.getElementById("divy").style.color = "red";
+            document.getElementById("divy").style.backgroundColor = "yellow";
+        }
+
+        function hideMe(){
+            //document.getElementById("divy").style.visibility = "hidden";
+            if(document.getElementById("btnHideShow").innerHTML == "הסתר"){
+                document.getElementById("divy").style.visibility = "hidden";
+                //document.getElementById("divy").style.display = "none";
+                document.getElementById("btnHideShow").innerHTML = "הצג";
+            } else {
+                document.getElementById("divy").style.visibility = "visible";
+                //document.getElementById("divy").style.display = "block";
+                document.getElementById("btnHideShow").innerHTML = "הסתר";
+            }
+        }
+
+        function overSpan(){
+            let spanny = document.getElementById("spanny")
+            spanny.style.fontSize = "16pt";
+            spanny.style.color = "yellow";
+        }
+
+        function outSpan(){
+            let spanny = document.getElementById("spanny")
+            spanny.style.fontSize = "12pt";
+            spanny.style.color = "black";
+        }
+
+        // var spanny;
+        // function init(){
+        //     spanny = document.getElementById("spanny")
+        // }
+    </script>
+
+    <style>
+        button{
+            border-radius: 6px;
+        }
+    </style>
+</head>
+<body>
+    <div id="divy" onclick="changeMe()">Our lovely div here</div><br/>
+    <button onclick="hideMe()" id="btnHideShow">הסתר</button><br/><br/>
+    <span id="spanny" onmouseover="overSpan()" onmouseout="outSpan()">Some text in a span...</span>
+</body>
+</html>
