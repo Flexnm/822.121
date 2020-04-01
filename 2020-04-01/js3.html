@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <script>
+
+        /*
+
+        webpage to buy products;
+        display a list of products --> in js create a Product (id, title, price) class and an array of products
+        add a button next to each product to buy the product --> item will be added to a Cart
+        the cart is not shown only saved in js but display the number of items in the cart somewhere on the webpage.
+
+        *** bonus: clicking on the cart icon will display the cart contents!
+
+
+        */
+
+
+        class Person{
+            constructor(fname, lname, age){
+                this.firstName = fname;
+                this.lastName = lname;
+                this.age = age;
+            }
+
+            //height = 180;
+            display = function() {
+                return this.firstName + " " + this.lastName + ", age: " + this.age;
+            }
+            
+        }
+
+        var p1 = new Person("Donald", "Trump", 120);
+        console.log(p1);
+
+        var p2 = new Person("Kim", "Gun Mon Some Long Name", 55);
+        console.log(p2);
+        console.log(p2.display());
+
+    </script>
+
+</head>
+<body>
+    
+</body>
+</html>

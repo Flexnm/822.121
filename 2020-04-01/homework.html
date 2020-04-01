@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Homework</title>
+
+    <script>
+        function color(newColor, element){
+            //document.getElementById(element).style.backgroundColor = newColor;
+            element.style.backgroundColor = newColor;
+        }
+        
+
+        function clearColor(element){
+            //console.log(element);
+            element.style.backgroundColor = 'white'
+        }
+
+
+        function blink(){
+            let blinker = document.getElementById("blinker");
+            setInterval(function(){
+                // if(blinker.style.display != "none")
+                //     blinker.style.display = "none";
+                // else
+                //     blinker.style.display = "block";
+
+                if(blinker.style.visibility != "hidden")
+                    blinker.style.visibility = "hidden";
+                else
+                    blinker.style.visibility = "visible";
+            }, 2000);
+        }
+
+    </script>
+
+
+</head>
+<body onload="blink()">
+    <div id="div1" onmouseover="color('red', this)" onmouseout="clearColor(this)">Text 1</div>
+    <div id="div2" onmouseover="color('green', this)" onmouseout="clearColor(this)">Text 2</div>
+    <div id="div3" onmouseover="color('blue', this)" onmouseout="clearColor(this)">Text 3</div>
+
+    <div onmouseover="color('purple', this)" onmouseout="clearColor(this)">HELLO AND GOOD MORNING!</div>
+    <br/><br/>
+    <div id="blinker">WOW, Shigaun...</div>
+    some more text after blinker
+</body>
+</html>

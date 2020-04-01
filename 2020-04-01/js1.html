@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DOM Manipulation</title>
+
+    <script>
+        function addPara(){
+            //document.getElementById("divy").innerHTML += "<p style='color:red'>I am a new paragraph!</p>"
+            
+            let newPara = document.createElement("p");
+            newPara.innerHTML = "I am a new paragraph!";
+            newPara.style.color = "red";
+            document.getElementById("divy").appendChild(newPara);
+
+        }
+
+        function addParaFirst(){
+            let newPara = document.createElement("p");
+            newPara.innerHTML = "I am a very new paragraph!";
+            newPara.style.color = "green";
+            //document.getElementById("divy").insertBefore(newPara, document.getElementById("p1"))
+            document.getElementById("divy").insertBefore(newPara, document.getElementsByTagName("p")[0])
+
+        }
+
+        function removePara(){
+            let paras = document.getElementsByTagName("p");
+            let lastP = paras[paras.length-1];
+            document.getElementById("divy").removeChild(lastP);
+        }
+
+        // create a webpage with text box, a button and a list (ul).
+        // each time the user clicks the button a new <li> element with the text in the text box will be added to the list!
+    </script>
+
+</head>
+<body>
+    <div id="divy">
+        <p id="p1">
+            I am p1: text text text <a href="#">link</a> text text
+        </p>
+        <p id="p2">
+            I am p2: dfgdfg df g fh gf h g hgf
+        </p>
+
+    </div>
+    <input type="button" value="Add paragraph" onclick="addPara()" />
+    <input type="button" value="Add First" onclick="addParaFirst()" />
+    <input type="button" value="Remove" onclick="removePara()" />
+
+</body>
+</html>

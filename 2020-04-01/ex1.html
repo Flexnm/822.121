@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <script>
+        function addItem(){
+            let newItem = document.createElement("li");
+            newItem.innerHTML = document.getElementById('txtItem').value;
+            document.getElementById("items").appendChild(newItem);
+            document.getElementById('txtItem').value = "";
+        }
+
+
+        // create a new webpage with a form:
+        // text box for student name, textbox for student grade, an Add button.
+        // When the button is clicked a new table row with the name and grade will be added to a table below the form.
+
+
+        // Ex:
+        //  Name     Grade
+        //  Nir      60
+
+        // <table>
+        //    <tr>
+        //         <td>Name</td>
+        //         <td>Grade</td>
+        //    </tr>
+
+        function addStudent(){
+            /*
+            let row = document.createElement("tr");
+            let tdName = document.createElement("td");
+            let tdGrade = document.createElement("td");
+            tdName.innerHTML = document.getElementById("txtName").value;
+            tdGrade.innerHTML = document.getElementById("txtGrade").value;
+            row.appendChild(tdName); // add the td with name to the new row
+            row.appendChild(tdGrade); // add the td with grade to the new row
+            document.getElementById("myTable").appendChild(row);
+            */
+            document.getElementById("myTable").innerHTML += 
+                "<tr><td>" + document.getElementById("txtName").value + "</td><td>" + document.getElementById("txtGrade").value + "</td></tr>";
+        }
+    </script>
+
+</head>
+<body>
+    <form style="background-color: aquamarine; padding: 20px;">
+        <input id="txtItem" type="text" placeholder="To do item" />
+        <input type="button" value="Add Item" onclick="addItem()"/>
+        <ul id="items"></ul>
+    </form>
+    <hr style="height: 5px; width: 50%;"/><br/>
+
+    <form>
+        <input type="text" placeholder="Student name" id="txtName"/><br/>
+        <input type="number" placeholder="Student grade" id="txtGrade"/>
+        <input type="button" value="Add Student" onclick="addStudent()"/><br/><br/>
+        <table id="myTable">
+            <tr>
+                <th>Name</th>
+                <th>Grade</th>
+            </tr>
+        </table>
+    </form>
+</body>
+</html>
