@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <script>
+        //window.location.href = "http://www.google.com"
+
+        //alert(navigator.userAgent)
+
+
+        //navigator.geolocation.getCurrentPosition(success, error);
+
+        function success(pos){
+            console.log(pos.coords.latitude + "," + pos.coords.longitude + " " + new Date(pos.timestamp) + " " + pos.coords.accuracy + "m")
+        }
+
+        function error(err){
+            console.log(err)
+        }
+
+
+        // navigator.geolocation.getCurrentPosition(function(pos){
+        //     console.log(pos.coords.latitude + "," + pos.coords.longitude + " " + new Date(pos.timestamp) + " " + pos.coords.accuracy + "m")
+        // }, function error(err){
+        //     console.log(err)
+        // });
+
+
+        //localStorage.setItem("myColor", "Red");
+        //sessionStorage;
+
+        if(localStorage.getItem("myColor") != undefined){
+            alert("You like the color: " + localStorage.getItem("myColor"))
+        }
+    </script>
+</head>
+<body>
+    
+</body>
+</html>
