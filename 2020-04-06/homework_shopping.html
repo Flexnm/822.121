@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <style>
+        #cartBadge{
+            background-color: lightskyblue;
+            /*background-image: url('cart.png');
+            background-size: 20px;
+            background-repeat: no-repeat;*/
+            color: white;
+            border-radius: 30px;
+            padding: 2px;
+            display: inline;
+        }
+
+        #productList{
+            /*border: solid black 1px;*/
+            width: 250px;
+        }
+
+        #productList td,th{
+            border: solid gray 1px;
+        }
+
+    </style>
+
+    <script>
+
+        class Product{
+            constructor(id, title, price){
+                this.id= id;
+                this.title = title;
+                this.price = price;
+            }
+        }
+
+        var products = [
+            new Product(1, "Masks", 30),
+            new Product(2, "Apples", 80),
+            new Product(3, "Bananas", 99),
+            new Product(4, "Eggs", 789.9),
+            new Product(5, "PS 5", 3450)
+        ];
+
+        var cart = [];
+
+        window.addEventListener("load", function(){
+            let productsTable = document.getElementById("productList");
+
+            // let table = document.createElement("table");
+            // let trHead = document.createElement("tr");
+            
+            
+            for(let i=0; i < products.length; i++){
+                // create a new table row
+                let row = document.createElement("tr");
+                // create new table data (cell) for the id
+                let tdId = document.createElement("td");
+                // add the product id to the cell
+                tdId.innerHTML = products[i].id;
+                // create new table data from product title
+                let tdTitle = document.createElement("td");
+                // add the product title to the td
+                tdTitle.innerHTML = products[i].title;
+                // create a new table data for the price
+                let tdPrice = document.createElement("td");
+                // add the product price to the td
+                tdPrice.innerHTML = "₪" + products[i].price;
+                // add the tds to the tr!
+                row.appendChild(tdId);
+                row.appendChild(tdTitle);
+                row.appendChild(tdPrice);
+
+                // add a BUY button to the row
+                let buyButton = document.createElement("input");
+                buyButton.type = "button";
+                buyButton.value = "💵";
+                buyButton.addEventListener("click", function(){
+                    // alert("buying product: " + products[i].id);
+                    // add product to the cart
+                    cart.push(products[i]);
+                    document.getElementById("cartCount").innerHTML = cart.length;
+                });
+                row.appendChild(buyButton);
+
+                // add the new row to the products table!
+                productsTable.appendChild(row);
+                
+            }
+
+
+            // add click event to display cart button
+            document.getElementById("btnDisplayCart").addEventListener("click", function(){
+                let cartDiv = document.getElementById("cart");
+                cartDiv.innerHTML = "";
+                for(let i=0; i < cart.length; i++){
+                    cartDiv.innerHTML += cart[i].title + " ₪" + cart[i].price + "<br/>";
+                }
+            });
+
+        }); 
+
+    </script>
+
+</head>
+<body>
+    <div id="cartBadge">
+        🛒<span id="cartCount">0</span>
+    </div>
+    <br/><br/>
+    <div>
+        <table id="productList">
+            <tr>
+                <th>Id</th>
+                <th>Title</th>
+                <th>Price</th>
+            </tr>
+        </table>
+    </div>
+    <br/><br/>
+    <input type="button" value="🛒" id="btnDisplayCart" />
+    <div id="cart"></div>
+</body>
+</html>
