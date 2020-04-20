@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <!--<script src="jquery-3.5.0.js"></script>-->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+
+    <script>
+        $(function(){ // this inline function will run when document is ready!
+            //$("#div1").html("Div was <b>changed</b> from js")
+            $("div").html("Div was <b>changed</b> from js")
+            $(".banner").html("111")
+            $("div:even").html("2")
+        });
+
+       
+    </script>
+
+    <style>
+        .banner{
+            width: 50%;
+            background-color: aquamarine;
+        }
+    </style>
+
+</head>
+<body>
+    <div id="div1">Div 1</div>
+    <div>Div 2</div>
+    <div class="banner">Div 3</div>
+    <span class="banner">I am a span!</span>
+</body>
+</html>

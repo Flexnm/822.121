@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    
+    <script>
+
+        /*
+            בנו דף חדש עם תיבת טקסט, כפתור ודיב מתחתיו.
+            בלחיצה על הכפתור התוכן של התיבה יופיע בדיב!
+
+
+        */
+
+
+        $(function(){ // document ready
+
+            //$("#txt1").val("Hello"); // set value
+            //alert( $("#txt1").val() ) // get value
+
+            $("#btn1").click(function(){ // add click event listener
+                alert( $("#txt1").val() )
+            });
+
+            $("#btn1").mouseenter(function(){
+                console.log("ouch!")
+            })
+
+            $("#btn1").mouseleave(function(){
+                console.log("bye...")
+            })
+            //------------------------------------------------------
+
+            $("#btn2").click(function(){
+                //$("#result").html( $("#result").html() +"<br/>" + $("#txt2").val() );
+                //$("#txt2").val("");
+
+                let $res = $("#result");
+                let $txt2 = $("#txt2");
+                //$res.append( $txt2.val() + "<br/>" ); // add new child at the end
+                //$res.prepend( $txt2.val() + "<br/>" ); // add new child at the beginning
+                $res.after( $("<div>").html($txt2.val()) ); // add after the element
+                $txt2.val("");
+            });
+
+        });
+    </script>
+
+    <style>
+        #result{
+            color: red;
+        }
+    </style>
+
+</head>
+<body>
+    <input type="text" id="txt1" placeholder="Enter text here" value="Hello 2" />
+    <input type="button" value="click me!" id="btn1" /><br/><br/><br/>
+
+    <input type="text" id="txt2" /><br/>
+    <button id="btn2">Click me 2</button><br/>
+    <div id="result"></div>
+    
+</body>
+</html>
