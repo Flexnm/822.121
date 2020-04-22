@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+	
+    <script>
+
+        function getData(){
+        	// AJAX with plain javascript
+            let httpReq = new XMLHttpRequest();
+            httpReq.onreadystatechange = function(){
+                if(this.readyState == 4 && this.status == 200){
+                    //alert(this.responseText);
+                    document.getElementById("result").innerHTML = this.responseText;
+                }
+            };
+            httpReq.open("GET", "wonder/greet", true);
+            httpReq.send();
+            
+        }
+        
+        $(function(){ // doc ready
+        	
+        	$("#btn2").click(function(){
+        		//$.get("wonder/greet", function(response){
+        		//	$("#result").html(response);
+        		//});
+        		
+        		$.ajax({
+                    //url: "wonder/greet",
+                    url: "wonder?x=" + a + "&y=" + b,
+                    type : "POST",
+                    success: function(response){
+                    	$("#result").html(response);
+                    },
+                    error: function(err){
+                    	$("#result").html(err);
+                    }
+                });
+        		
+        	});
+        	
+        });
+        
+        // create a new Spring Boot web project. Create a new CalcController: add(x,y), mult(x,y), div(x,y) - both use GetMapping
+        // create an html file in resources with two number inputs and two buttons: add and mult. The result from the server will be displayed in the html file!
+
+    </script>
+</head>
+<body>
+    <!-- AJAX - Async JS and XML -->
+    <h1>AJAX Demo :)</h1>
+    <a href="wonder/greet" >Get some text</a><br/>
+    <button onclick="getData()">Get data</button>
+    <button id="btn2">Get data 2</button>
+    <br/><br/>
+    <div id="result"></div>
+</body>
+</html>
