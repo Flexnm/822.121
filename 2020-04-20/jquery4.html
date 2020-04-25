@@ -22,15 +22,15 @@
         
         
             $("#btnSend").click(function(){
-               if("#username").val() == ""){
+               if( $("#username").val() == ""){
                     $("#username").after( $("<span>").html("user name is missing").addClass("err") );   
                }
                 
-                if("#age").val() == ""){
+                if( $("#age").val() == ""){
                     $("#age").after( $("<span>").html("age is missing").addClass("err") );   
                }
                 
-                if("#password").val() == ""){
+                if( $("#password").val() == ""){
                     $("#password").after( $("<span>").html("password is missing").addClass("err") );   
                }
             });
