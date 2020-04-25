@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+	
+ 
+ 	<script>
+ 		$(function(){
+ 			$("#btnAllTexts").click(function(){
+ 				$.ajax({
+ 					url:"texts",
+ 					type:"GET",
+ 					success: function(array){
+ 						$("#textList").html("Texts:<br/>")
+ 						for(let i=0; i<array.length; i++){
+ 							$("#textList").append(array[i] + "<br/>")
+ 						}
+ 						
+ 					}
+ 				})
+ 			})
+ 			
+ 			$("#btnOneText").click(function(){
+ 				$.ajax({
+ 					url:"texts/" + $("#txtIndex").val(),
+ 					success: function(text){
+ 						$("#textList").html("One text: " + text);
+ 					}
+ 				
+ 				})
+ 			});
+ 			
+ 			$("#btnAddText").click(function(){
+ 				
+ 				$.ajax({
+ 					url: "texts",
+ 					type: "POST",
+ 					data: "text=" + $("#title").val(),  // this is not json - just a simple string
+ 					success: function(res){
+ 						$("#textList").html(res);
+ 					},
+ 					error: function(err){
+ 						console.log(err)
+ 						alert("Error! " + err.responseText);
+ 					}
+ 				})
+ 				
+ 			});
+ 		})
+ 	</script>
+</head>
+<body>
+	<h1>Text Test</h1>
+	<input type="button" id="btnAllTexts" value="Get Texts" /><br/>
+	<input type="number" id="txtIndex" placeholder="Index" />
+	<input type="button" id="btnOneText" value="Get One Text" /><br/>
+	<input type="text" id="title" placeholder="Your text here" /><br/>
+	<input type="button" id="btnAddText" value="Add Text" /><br/>
+	<div id="textList"></div>
+</body>
+</html>
