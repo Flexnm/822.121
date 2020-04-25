@@ -21,12 +21,19 @@
         
         
         
-        
-        
-        
-        
-        
-        
+            $("#btnSend").click(function(){
+               if("#username").val() == ""){
+                    $("#username").after( $("<span>").html("user name is missing").addClass("err") );   
+               }
+                
+                if("#age").val() == ""){
+                    $("#age").after( $("<span>").html("age is missing").addClass("err") );   
+               }
+                
+                if("#password").val() == ""){
+                    $("#password").after( $("<span>").html("password is missing").addClass("err") );   
+               }
+            });
             
             $("#myForm>input:not([type=button])").focus(function(){
                 $(this).css('background-color', "lightblue");
@@ -45,6 +52,9 @@
         #div1{
             background-color: tomato;
         }
+        .err{
+            color:red;   
+        }
     </style>
 </head>
 <body>
@@ -53,7 +63,7 @@
         <input type="text" id="username" placeholder="Username"/><br/>
         <input type="number" id="age" placeholder="Age"  /><br/>
         <input type="password" id="password" placeholder="Password"  /><br/>
-        <input type="button" value="Send">
+        <input type="button" id="btnSend" value="Send">
     </form>
 </body>
 </html>
