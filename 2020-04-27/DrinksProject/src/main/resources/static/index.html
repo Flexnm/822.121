@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="ISO-8859-1">
+<title>Insert title here</title>
+
+<script	src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+
+<script>
+
+	$(function(){
+		
+		$("#btnAll").click(function(){
+			$.ajax({
+				
+				url:"/drinks",
+				success: function(drinks){
+					$("#list").html("");
+					for(let i=0; i<drinks.length; i++){
+						$("#list").append( $("<p>").html(drinks[i].name + ", price: $" + drinks[i].price + ", " + drinks[i].alchohol + "%").addClass("drinkName") );
+					}
+					
+				}
+			});
+			
+		}); // end of btnAll click
+		
+	
+		$("#btnAdd").click(function(){
+			let drink = {
+					name: $("#txtName").val(),
+					alchohol : $("#txtAlchohol").val(),
+					price: $("#txtPrice").val()
+			}
+			
+			$.ajax({
+				url: "/drinks",
+				type: "POST",
+				data: JSON.stringify(drink),
+				contentType: "application/json",
+				success: function(newDrink){
+					alert("Drink added! New id is: " + newDrink.id)
+				},
+				error: function(err){
+					alert(err.responseText);
+				}
+				
+				
+			});
+		});
+		
+		
+		$("#btnDelete").click(function(){
+			$.ajax({
+				url: "/drinks/" + $("#txtId").val(),
+				type: "DELETE",
+				success: function(result){
+					alert(result);
+				},
+				error: function(err){
+					alert(err.responseText);
+				}
+			})
+		})
+		
+	});
+</script>
+
+<style>
+	.drinkName{
+		color: maroon;
+		font-size: 20pt;
+		text-decoration: underline;
+	}
+	
+	input:not([type='button']){
+		border: solid 1px lightblue;
+		border-radius: 10px;
+		padding: 5px;
+	}
+	
+	img:not([src$='png']){ /* equals: =, starts with: ^=, ends with: $= */
+	}
+	
+	a[href$='co.il']{
+		color:red;
+	}
+	
+	a[href^='https']{
+		color:green;
+	}
+</style>
+
+</head>
+<body>
+	<h1>Drinks!</h1>
+
+	<input type="button" value="Get All Drinks" id="btnAll" />
+	<br />
+	<br />
+	<input type="text" placeholder="Drink Name" id="txtName" /><br/>
+	<input type="number" step="0.1" placeholder="Drink Alchohol Level" id="txtAlchohol" /><br/>
+	<input type="number" step="0.1" placeholder="Drink Price" id="txtPrice" /><br/>
+	<input type="button" value="Add Drink" id="btnAdd"/><br/><br/>
+	
+	<input type="number" step="10" placeholder="Drink Id" id="txtId" /><br/>
+	<input type="button" value="Delete Drink" id="btnDelete"/><br/><br/>
+
+	<div id="list"></div>
+
+</body>
+</html>

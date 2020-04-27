@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+	
+ 
+ 	<script>
+ 		$(function(){
+ 			$("#btnAllTexts").click(function(){
+ 				$.ajax({
+ 					//url:"texts",
+ 					url:"http://localhost:8080/college/students",
+ 					type:"GET",
+ 					success: function(array){
+ 						$("#textList").html("Texts:<br/>")
+ 						for(let i=0; i<array.length; i++){
+ 							$("#textList").append(array[i] + "<br/>")
+ 						}
+ 						
+ 					}
+ 				})
+ 			})
+ 			
+ 			$("#btnOneText").click(function(){
+ 				$.ajax({
+ 					url:"texts/" + $("#txtIndex").val(),
+ 					success: function(text){
+ 						$("#textList").html("One text: " + text);
+ 					},
+ 					error: function(err){
+ 						alert(err.responseText)
+ 					}
+ 				
+ 				})
+ 			});
+ 			
+ 			// 1. query param: http://localhost:8080/texts?key2=val&key=val
+ 			// 2. path variable: http://localhost:8080/texts/val1/val2
+ 			// 3. request body: http://localhost:8080/texts
+ 			
+ 			
+ 			$("#btnAddText").click(function(){
+ 				
+ 				$.ajax({
+ 					url: "texts",
+ 					type: "POST",
+ 					data: "txt=" + $("#title").val(),  // this is not json - just a simple string
+ 					success: function(res){
+ 						$("#textList").html(res);
+ 					},
+ 					error: function(err){
+ 						console.log(err)
+ 						alert("Error! " + err.responseText);
+ 					}
+ 				})
+ 				
+ 			});
+ 		})
+ 	</script>
+</head>
+<body>
+	<h1>Text Test</h1>
+	<input type="button" id="btnAllTexts" value="Get Texts" /><br/>
+	<input type="number" id="txtIndex" placeholder="Index" />
+	<input type="button" id="btnOneText" value="Get One Text" /><br/>
+	<input type="text" id="title" placeholder="Your text here" /><br/>
+	<input type="button" id="btnAddText" value="Add Text" /><br/>
+	<div id="textList"></div>
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
