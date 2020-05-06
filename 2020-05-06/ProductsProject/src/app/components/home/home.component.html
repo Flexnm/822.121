@@ -1,0 +1,21 @@
+<div>
+    <!-- interpolation -->
+    Today is: {{getToday() | date:'dd/MM/yyyy hh:mm:ss EEEE'}}
+    <p>
+        Only today, all products cost: {{productPrice|currency:"ILS"}}
+    </p>
+    <ul style="text-align: left;">
+        <!--ngFor directive-->
+        <li *ngFor="let n of names">{{n}}</li>
+    </ul>
+    <!--ngIf directive-->
+    <p *ngIf="isDay">Have a nice day 😀</p>
+    <p *ngIf="!isDay">Have a wonderfull night 🌙</p>
+
+    <!-- add a button - each click changes the image width to a random number between 200 and 400 -->
+    <!-- Event Binding -->
+    <button (click)="changeImageWidth()">Change Width</button><br/>
+    <!--  Property Binding  -->
+    <img src="assets\angular1.png" alt="angular image" [width]=imageWidth [title]=title />
+
+</div>
