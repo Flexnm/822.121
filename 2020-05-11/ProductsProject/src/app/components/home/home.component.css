@@ -1,0 +1,12 @@
+div.container{
+    text-align: center;
+}
+
+table{
+    margin: auto; /* center the table! */
+    border: gray 2px dotted;
+}
+
+th, td {
+    border: black 1px dashed;
+}
