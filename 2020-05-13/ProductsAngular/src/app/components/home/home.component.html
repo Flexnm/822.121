@@ -1,0 +1,47 @@
+<div class="container">
+    <!-- interpolation -->
+    Today is: {{getToday() | date:'dd/MM/yyyy hh:mm:ss EEEE'}}
+    <p>
+        Only today, all products cost: {{productPrice|currency:"ILS"}}
+    </p>
+    <p *ngIf="productPrice > 100">
+        Wow that price is a little high!
+    </p>
+    <input type="button" value="Generate Price" (click)="randomPrice()" /><br/>
+    <input type="range" [(ngModel)]="productPrice" max="400"><br/>
+
+<!--
+    <ul style="text-align: left;">
+        <!--ngFor directive
+        <li *ngFor="let n of names">{{n}}</li>
+    </ul>
+    <!--ngIf directive
+    <p *ngIf="isDay">Have a nice day 😀</p>
+    <p *ngIf="!isDay">Have a wonderfull night 🌙</p>
+-->
+    <!-- add a button - each click changes the image width to a random number between 200 and 400 -->
+    <!-- Event Binding -->
+    <button (click)="changeImageWidth()">Change Width</button><br/>
+    <input type="button" value="-" (click)="minusWidth()"/>
+    <input type="button" value="+"  (click)="plusWidth()"/><br/>
+    
+    <!-- Two way binding -->
+    <input type="text" [(ngModel)]="imageWidth"/><br/>
+    
+    <!--  Property Binding  -->
+    <img src="assets\angular1.png" alt="angular image" [width]="imageWidth" [title]="title" />
+
+    <br/><br/>
+    <p *ngIf="students.length==0">No students yet...</p>
+    <table *ngIf="students.length > 0">
+        <tr>
+            <th>Student Name</th>
+            <th>Student Grade</th>
+        </tr>
+        <tr *ngFor="let stud of students">
+            <td>{{stud.name}}</td>
+            <td>{{stud.grade}}</td>
+        </tr>
+    </table>
+
+</div>

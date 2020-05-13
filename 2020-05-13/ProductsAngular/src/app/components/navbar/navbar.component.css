@@ -1,0 +1,19 @@
+div{
+    text-align: center;
+    padding-top: 10px;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+    padding-left: 40px;
+    padding-right: 40px;
+
+}
+
+a{
+    background-color: lightgray;
+    color: gray;
+    padding: 15px;
+    text-decoration:  none;
+    border: 1px solid black;
+    margin-right: 5px;
+
+}
