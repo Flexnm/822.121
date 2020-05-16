@@ -1,0 +1,26 @@
+<div>
+    isPrime result: {{result}}<br/>
+    sum is: {{sum}}
+    <br/><br/>
+
+    <!-- <p *ngFor="let post of posts">
+        {{post.title}}<br/>
+        {{post.body}}
+    </p> -->
+
+    <table>
+        <tr>
+            <th>ID</th>
+            <th>Title</th>
+            <th>Price</th>
+            <th>Expiry Date</th>
+        </tr>
+        <tr *ngFor="let p of products">
+            <td>{{p.id}}</td>
+            <td>{{p.title}}</td>
+            <td>{{p.price}}</td>
+            <td>{{p.expiryDate}}</td>
+        </tr>
+    </table>
+
+</div>
