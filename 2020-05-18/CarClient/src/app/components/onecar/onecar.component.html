@@ -1,0 +1,20 @@
+<div>
+    <input type="number" placeholder="car id" [(ngModel)]="carId"  (keyup)="getCar()" />
+    <!-- <input type="button" value="Get Car" (click)="getCar()" /> -->
+
+    <br/> 
+    <table *ngIf="car">
+        <tr>
+            <th>ID</th>
+            <th>Model</th>
+            <th>Year</th>
+            <th>Color</th>
+        </tr>
+        <tr>
+            <td>{{car.id}}</td>
+            <td>{{car.model}}</td>
+            <td>{{car.year}}</td>
+            <td>{{car.color}}</td>
+        </tr>
+    </table>
+</div>

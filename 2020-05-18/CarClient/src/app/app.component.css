@@ -1,0 +1,5 @@
+article{
+    height:100%;
+    display: grid;
+    grid-template-rows: 10% 90%;
+}
