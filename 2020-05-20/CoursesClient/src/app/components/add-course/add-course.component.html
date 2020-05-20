@@ -1,0 +1,19 @@
+<div>
+    <form #frmAdd="ngForm">
+        <input #textTitle="ngModel" [(ngModel)]="title" name="textTitle" type="text" placeholder="Title" required pattern="^[A-Z]$" />
+        <!-- <span *ngIf="!textTitle.valid">Title is required!</span> -->
+        <span *ngIf="textTitle.errors?.required && textTitle.touched">Title is required!</span>
+        <span *ngIf="textTitle.errors?.pattern && textTitle.touched">Title must be two UPPERCASE letters!</span>
+        <br />
+        <input type="number" placeholder="Duration" /><br />
+        <input type="date" placeholder="Start Date" /><br />
+        <input [disabled]="!frmAdd.valid" type="button" value="Add New Course" /><br />
+    </form>
+    <!-- <p>
+        frmAdd is valid? {{frmAdd.valid}}
+    </p>
+    <p>
+        textTitle is valid? {{textTitle.valid}}
+    </p> -->
+
+</div>

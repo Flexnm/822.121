@@ -1,0 +1,25 @@
+<div>
+    <p *ngIf="!ourCourses || ourCourses.length == 0">No Courses found in the system!</p>
+
+    <table *ngIf="ourCourses && ourCourses.length > 0">
+        <tr>
+            <th>Title</th>
+            <th>Duration</th>
+            <th>Start Date</th>
+        </tr>
+        <tr *ngFor="let c of ourCourses">
+            <td>
+                {{c.title}}
+            </td>
+            <td>
+                {{c.duration}}
+            </td>
+            <td>
+                {{c.startDate}}
+            </td>
+            <td>
+                <input type="button" value="🚮" (click)="delete(c.id)"/>
+            </td>
+        </tr>
+    </table>
+</div>
