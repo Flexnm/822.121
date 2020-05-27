@@ -1,0 +1,61 @@
+<div>
+    <!-- Template Forms -->
+    <!--
+    <form #frmProduct="ngForm">
+        <input #prdTitle="ngModel" type="text" name="title" [(ngModel)]="title" placeholder="title" required/>
+        <span *ngIf="!prdTitle.valid && prdTitle.touched">Title is required!</span>
+        <br/>
+        <input type="text" placeholder="description" required/><br/>
+        <input type="number" placeholder="price" /><br/>
+        <input type="button" value="Add Product" [disabled]="!frmProduct.valid">
+    </form>
+    -->
+
+    <!-- Reactive Forms -->
+    <form [formGroup]="prdForm">
+        <!-- <input type="text" placeholder="Title" [formControl]="prdForm.controls['title']" /><br/> -->
+        <div>
+            <label for="title">
+                Product Title
+            </label><br/>
+            <input type="text" name="title" formControlName="title" />
+            <span *ngIf="!prdForm.controls['title'].valid && prdForm.controls['title'].touched">Title is required!</span>
+        </div>
+        
+        <input type="text" placeholder="Description" formControlName="description"/>
+        <span *ngIf="fc()['description'].errors?.required && fc()['description'].touched">Description is required!</span>
+        <span *ngIf="fc()['description'].errors?.minlength && fc()['description'].touched">Description length must be 3 chars minimum!</span>
+        <br/>
+        <input type="number"  placeholder="Price" formControlName="price"/><br/>
+        <input type="button" value="Add Product" [disabled]="!prdForm.valid"/>
+    </form>
+
+    <hr/>
+
+    <!--
+        first name : required
+        last name : required
+        email : required
+        password : required
+
+    -->
+    <form [formGroup]="userForm">
+        <input type="text" placeholder="First Name" formControlName="fname" />
+        <span *ngIf="!userForm.controls['fname'].valid && userForm.controls['fname'].touched">First name is required!</span>
+        <br/>
+        <input type="text" placeholder="Last Name" formControlName="lname" />
+        <span *ngIf="user['lname'].errors?.required && user['lname'].touched">Last name is required!</span>
+        <span *ngIf="user['lname'].errors?.lastNameError && user['lname'].touched">Last name MUST be at least 3 chars long...</span>
+
+        <br/>
+        <input type="email" placeholder="Email" formControlName="email" />
+        <span *ngIf="!user['email'].valid && user['email'].touched">Email is required!</span>
+        <br/>
+        <input type="password" placeholder="Password" formControlName="password" />
+        <span *ngIf="!user['password'].valid && user['password'].touched">Password is required!</span>
+        <br/>
+        <input type="button" value="Send" [disabled]="!userForm.valid" (click)="sendUser()">
+        
+    </form>
+
+</div>
