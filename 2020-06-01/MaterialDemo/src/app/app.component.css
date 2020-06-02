@@ -1,0 +1,11 @@
+.toolbar-fill{
+    flex: 1 1 auto;
+}
+
+mat-form-field{
+    /*background-color: pink;*/
+}
+
+/* mat-error{
+    color: green;
+} */
