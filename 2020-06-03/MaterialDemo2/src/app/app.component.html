@@ -1,0 +1,58 @@
+<div>
+    <br /><br />
+    <mat-slider min="1" max="100" thumbLabel tickInterval="20"></mat-slider>
+    <br /><br />
+    <mat-checkbox color="primary">Send me junk mail</mat-checkbox>
+    <br /><br />
+    <mat-slide-toggle>Dark Mode</mat-slide-toggle>
+    <br /><br />
+    <button mat-button>Button</button><br />
+    <button mat-raised-button color="primary">Button Raised</button><br />
+    <button mat-flat-button color="">Button Flat</button><br />
+    <button mat-stroked-button>Button Stroked</button><br />
+    <button mat-icon-button>
+        <!-- <mat-icon>favorite</mat-icon> -->
+        💖
+    </button><br />
+    <button mat-fab>😊</button><br />
+    <button mat-mini-fab>😊</button><br />
+    <mat-icon style="font-size: 6em;">settings</mat-icon><br />
+    <button mat-raised-button matBadge="2">Inbox</button>
+    <br /><br />
+
+    <mat-form-field>
+        <mat-select #ourSelect [formControl]="optionSelect" multiple>
+            <!-- <mat-option value="option1">option 1</mat-option>
+            <mat-option value="option2">option 2</mat-option>
+            <mat-option value="option3">option 3</mat-option> -->
+            <mat-option *ngFor="let op of options" [value]="op.title">
+                {{op.title}}
+            </mat-option>
+        </mat-select>
+    </mat-form-field>
+    <span>Select value: {{ourSelect.value}}</span>
+    <br /><br />
+
+    <!-- <mat-form-field>
+        <input type="text" #myCar matInput [matAutocomplete]="myAuto" [formControl]="autocomplete" />
+        <mat-autocomplete #myAuto="matAutocomplete">
+            <mat-option *ngFor="let car of options" [value]="car.title">
+                {{car.title}}
+            </mat-option>
+        </mat-autocomplete>
+    </mat-form-field>
+    <span>{{myCar.value}}</span> -->
+    <br/><br/>
+
+    <span [matTooltip]="ourTooltip">Some text with tooltip</span>
+    <br/><br/>
+    <button mat-raised-button (click)="showSnack()">Show snack-bar</button>
+
+    <br/><br/>
+    <button mat-raised-button (click)="showDialog()">Show dialog</button>
+
+
+    <br /><br /><br /><br /><br /><br />
+    <br /><br /><br /><br /><br /><br />
+    <br /><br /><br /><br /><br /><br />
+</div>
